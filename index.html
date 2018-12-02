@@ -2,39 +2,58 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, minimum-scale=1, maximum-scale=1"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
     <title>hilo-test</title>
     <script src="./js/hilo-standalone.js"></script>
     <style type="text/css">
-        body, div, canvas{
+        body, div, canvas {
             image-rendering: optimizeSpeed;
             -webkit-image-rendering: optimizeSpeed;
             -webkit-interpolation-mode: nearest-neighbor;
         }
-        body{padding:0; margin:0; font-size:12px; background-color:#fff;}
-        body, html{height:100%;}
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-size: 12px;
+            background-color: #fff;
+        }
+
+        body, html {
+            height: 100%;
+        }
     </style>
 </head>
 <body>
-    <div id="canvasEle" style="width: 480px;height: 320px;"></div>
-    <script>
-        var stage = new Hilo.Stage({
-            renderType:'canvas',
-            container: document.getElementById('canvasEle'),
-            width: 960,
-            height: 640,
-            scaleX: 0.5,
-            scaleY: 0.5
-        });
-        var background = new Hilo.Bitmap({
-            image: 'img/mountain.png'
-        }).addTo(stage);
+<div id="canvasEle" style="width: 700px;height: 400px;border: 20px solid #000;border-color: #1f8858"></div>
+<script>
+    var stage = new Hilo.Stage({
+        renderType: 'canvas',
+        container: document.getElementById('canvasEle'),
+        width: 1400,
+        height: 800,
+        scaleX: 0.5,
+        scaleY: 0.5
+    });
+    var background = new Hilo.Bitmap({
+        image: 'img/bg.png'
+    }).addTo(stage);
 
-        var ticker = new Hilo.Ticker(60);
-        ticker.addTick(stage);
-        ticker.start();
-    </script>
+    var mountain = new Hilo.Bitmap({
+        image: 'img/mountain.png'
+    }).addTo(stage);
+
+    var tree = new Hilo.Bitmap({
+        image: 'img/tree.png',
+        x: 0,
+        y: 400
+    }).addTo(stage);
+
+    var ticker = new Hilo.Ticker(60);
+    ticker.addTick(stage);
+    ticker.start();
+</script>
 </body>
 </html>
